@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>臺中市立廍子國中 | 資賦優異班</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto+Sans+TC', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #022c22 0%, #047857 100%);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #fbbf24;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        /* 隱藏捲軸但保留滑動功能 */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- 導覽列 -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center space-x-3">
+                    <img src="images/BUZI.png" alt="廍子國中校徽" class="h-12 w-auto">
+                    <div>
+                        <h1 class="text-xl font-bold text-emerald-900 leading-tight">廍子國中</h1>
+                        <p class="text-xs text-emerald-600 tracking-widest uppercase">資賦優異班 Gifted Program</p>
+                    </div>
+                </div>
+                
+                <!-- 桌面版選單 -->
+                <div class="hidden md:flex space-x-8 font-medium">
+                    <a href="#events" class="nav-link text-gray-600 hover:text-emerald-800">活動看板</a>
+                    <a href="#about" class="nav-link text-gray-600 hover:text-emerald-800">關於我們</a>
+                    <a href="#curriculum" class="nav-link text-gray-600 hover:text-emerald-800">課程特色</a>
+                    <!-- 暫時隱藏榮譽榜與入學資訊 -->
+                    <!-- <a href="#achievements" class="nav-link text-gray-600 hover:text-emerald-800">榮譽榜</a> -->
+                    <!-- <a href="#admission" class="nav-link text-gray-600 hover:text-emerald-800">入學資訊</a> -->
+                </div>
+
+                <!-- 行動版選單按鈕 -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 行動版選單內容 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-3 shadow-lg">
+            <a href="#events" class="block px-2 text-gray-600">活動看板</a>
+            <a href="#about" class="block px-2 text-gray-600">關於我們</a>
+            <a href="#curriculum" class="block px-2 text-gray-600">課程特色</a>
+            <!-- 暫時隱藏榮譽榜與入學資訊 -->
+            <!-- <a href="#achievements" class="block px-2 text-gray-600">榮譽榜</a> -->
+            <!-- <a href="#admission" class="block px-2 text-gray-600">入學資訊</a> -->
+        </div>
+    </nav>
+
+    <!-- 主視覺區 (Hero Section) -->
+    <section class="pt-28 pb-16 hero-gradient text-white overflow-hidden relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
+            <span class="inline-block px-4 py-1 bg-emerald-700/50 rounded-full text-sm font-semibold mb-4 border border-emerald-400">培育跨域未來的領航者</span>
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">探索潛能<br><span class="text-yellow-400">追求卓越</span></h2>
+            <p class="text-lg text-emerald-100 mb-8 max-w-2xl">廍子國中資優班致力於提供深化的學術環境，結合創新思考與社會責任，讓每一顆獨特的心靈都能閃耀。透過跨學科專題與獨立研究，我們帶領學生看見更大的世界。</p>
+            <div class="flex flex-wrap gap-4 justify-center">
+                <a href="#curriculum" class="px-8 py-3 bg-white text-emerald-900 font-bold rounded-lg hover:bg-yellow-400 transition-colors">探索課程</a>
+                <a href="logic.pdf" target="_blank" class="px-8 py-3 border border-white/50 text-white font-bold rounded-lg hover:bg-white/10 transition-colors">數理簡章</a>
+                <a href="language.pdf" target="_blank" class="px-8 py-3 border border-white/50 text-white font-bold rounded-lg hover:bg-white/10 transition-colors">語文簡章</a>
+                <a href="https://forms.gle/m26Qx1YM9RUeMRGt6" target="_blank" class="px-8 py-3 bg-white text-emerald-900 font-bold rounded-lg hover:bg-yellow-400 transition-colors">認識營報名</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 活動看板 (滑動圖片輪播) -->
+    <section id="events" class="py-16 bg-gray-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4 tracking-tight">活動看板</h2>
+                <div class="w-20 h-1 bg-emerald-800 mx-auto"></div>
+            </div>
+            
+            <!-- 輪播圖容器 -->
+            <div class="relative w-full rounded-2xl overflow-hidden shadow-xl group bg-gray-200">
+                <!-- 圖片列 -->
+                <div id="carousel-inner" class="flex transition-transform duration-500 ease-out h-[250px] md:h-[350px]">
+                    <!-- Slide 1 -->
+                    <div class="w-full flex-shrink-0 relative">
+                        <img src="images/gift01.jpg" alt="活動名稱" class="w-full h-full object-cover">
+                        <!-- 暫時隱藏文字說明 -->
+                        <!--
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 md:p-8 text-white">
+                            <h3 class="text-2xl font-bold mb-2">112學年度 數理資優營</h3>
+                            <p class="text-emerald-100">引領學生深入探究科學奧秘，培養動手實作能力</p>
+                        </div>
+                        -->
+                    </div>
+                    <!-- Slide 2 (暫時隱藏) -->
+                    <!--
+                    <div class="w-full flex-shrink-0 relative">
+                        <img src="images/gift02.avif" alt="活動名稱" class="w-full h-full object-cover">
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 md:p-8 text-white">
+                            <h3 class="text-2xl font-bold mb-2">獨立研究成果發表會</h3>
+                            <p class="text-emerald-100">展現跨領域研究的豐碩成果，與大學端教授交流互動</p>
+                        </div>
+                    </div>
+                    -->
+                    <!-- Slide 3 (暫時隱藏) -->
+                    <!--
+                    <div class="w-full flex-shrink-0 relative">
+                        <img src="images/gift03.avif" alt="活動名稱" class="w-full h-full object-cover">
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 md:p-8 text-white">
+                            <h3 class="text-2xl font-bold mb-2">戶外踏查與社會實踐</h3>
+                            <p class="text-emerald-100">走出教室，實際關懷在地社區發展與環境生態</p>
+                        </div>
+                    </div>
+                    -->
+                </div>
+
+                <!-- 左右控制按鈕 (暫時隱藏) -->
+                <!--
+                <button id="prevBtn" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/70 hover:bg-white rounded-full flex items-center justify-center text-gray-800 transition-all opacity-0 group-hover:opacity-100 shadow-md focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button id="nextBtn" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/70 hover:bg-white rounded-full flex items-center justify-center text-gray-800 transition-all opacity-0 group-hover:opacity-100 shadow-md focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+                -->
+
+                <!-- 底部指示點 (暫時隱藏) -->
+                <!--
+                <div class="absolute bottom-4 right-0 left-0 flex justify-center space-x-3">
+                    <button class="indicator w-3 h-3 rounded-full bg-white opacity-100 transition-opacity focus:outline-none"></button>
+                    <button class="indicator w-3 h-3 rounded-full bg-white opacity-50 transition-opacity focus:outline-none"></button>
+                    <button class="indicator w-3 h-3 rounded-full bg-white opacity-50 transition-opacity focus:outline-none"></button>
+                </div>
+                -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 關於我們 -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4 tracking-tight">核心發展目標</h2>
+                <div class="w-20 h-1 bg-emerald-800 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="p-8 rounded-2xl bg-gray-50 card-hover">
+                    <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">批判思考</h3>
+                    <p class="text-gray-600">鼓勵學生質疑現狀，透過邏輯分析與論證，培養獨立解決複雜問題的能力。</p>
+                </div>
+                
+                <div class="p-8 rounded-2xl bg-gray-50 card-hover border-t-4 border-emerald-800">
+                    <div class="w-14 h-14 bg-emerald-100 text-emerald-800 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">創新實驗</h3>
+                    <p class="text-gray-600">提供先進的科學實驗室與創客空間，支持學生進行自主專題研究與動手實作。</p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-gray-50 card-hover">
+                    <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">社會實踐</h3>
+                    <p class="text-gray-600">將知識運用於社會服務，培養資優生的利他精神與全球公民意識。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 課程特色 -->
+    <section id="curriculum" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-2">特色化課程架構</h2>
+                    <p class="text-gray-600">超越傳統框架，打造深度學術體驗</p>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <p class="text-emerald-600 font-medium">113學年度 課程地圖</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 數理資優 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/3 h-48 bg-emerald-900 rounded-2xl flex items-center justify-center text-white p-4 text-center">
+                        <div>
+                            <span class="text-3xl font-bold block">Math & Sci</span>
+                            <span class="text-sm opacity-80 italic text-yellow-400">數理專才</span>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3">
+                        <h4 class="text-xl font-bold mb-4">數理邏輯探索</h4>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-emerald-600 mr-2">●</span>
+                                高層次數學思考課程
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-emerald-600 mr-2">●</span>
+                                科學探究與專題實作 (STEM)
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-emerald-600 mr-2">●</span>
+                                資訊程式與人工智慧應用
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 語文/社會人文 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/3 h-48 bg-gray-800 rounded-2xl flex items-center justify-center text-white p-4 text-center">
+                        <div>
+                            <span class="text-3xl font-bold block">Humanity</span>
+                            <span class="text-sm opacity-80 italic text-yellow-400">人文素養</span>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3">
+                        <h4 class="text-xl font-bold mb-4">人文與社會科學</h4>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-emerald-600 mr-2">●</span>
+                                經典導讀與文學分析
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-emerald-600 mr-2">●</span>
+                                社會議題調查與實踐
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-emerald-600 mr-2">●</span>
+                                國際移動力與跨文化交流
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 獨立研究 -->
+            <div class="mt-8 bg-white p-8 rounded-3xl shadow-sm border border-emerald-100">
+                <div class="flex flex-col md:flex-row items-center gap-10">
+                    <div class="md:w-1/4 text-center">
+                        <div class="inline-block p-6 rounded-full bg-yellow-50 mb-4">
+                            <svg class="w-12 h-12 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        </div>
+                        <h4 class="text-xl font-bold">個人化獨立研究</h4>
+                    </div>
+                    <div class="md:w-3/4">
+                        <p class="text-gray-600 leading-relaxed">
+                            這是資優班最具特色的課程。學生將在校內老師的指導下，選擇感興趣的領域進行為期一至兩年的深入研究。從擬定題目、資料蒐集、實驗論證到最後的成果發表與論文撰寫，完整體驗學術產出的過程。
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="px-3 py-1 bg-emerald-50 text-emerald-700 text-sm rounded-full font-medium">科展指導</span>
+                            <span class="px-3 py-1 bg-emerald-50 text-emerald-700 text-sm rounded-full font-medium">國際論壇</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 榮譽榜/成果展現 -->
+    <section id="achievements" class="py-24 bg-white hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">學生卓越表現</h2>
+                <p class="text-gray-500">Bu-Zi Bright Minds: Our Recent Success</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 榮譽項目 1 -->
+                <div class="bg-emerald-50 p-6 rounded-2xl text-center">
+                    <div class="text-emerald-600 font-bold text-4xl mb-2">112</div>
+                    <div class="text-sm font-bold text-gray-800 uppercase tracking-wider mb-2">全國科學展覽</div>
+                    <p class="text-gray-600 text-sm">國中組物理科 優等</p>
+                </div>
+                <!-- 榮譽項目 2 -->
+                <div class="bg-yellow-50 p-6 rounded-2xl text-center">
+                    <div class="text-yellow-600 font-bold text-4xl mb-2">Top 5%</div>
+                    <div class="text-sm font-bold text-gray-800 uppercase tracking-wider mb-2">AMC8 數學競賽</div>
+                    <p class="text-gray-600 text-sm">多人獲得傑出成績</p>
+                </div>
+                <!-- 榮譽項目 3 -->
+                <div class="bg-emerald-50 p-6 rounded-2xl text-center">
+                    <div class="text-emerald-600 font-bold text-4xl mb-2">🏆</div>
+                    <div class="text-sm font-bold text-gray-800 uppercase tracking-wider mb-2">台中市創意大賽</div>
+                    <p class="text-gray-600 text-sm">創客組 第一名</p>
+                </div>
+                <!-- 榮譽項目 4 -->
+                <div class="bg-yellow-50 p-6 rounded-2xl text-center">
+                    <div class="text-yellow-600 font-bold text-4xl mb-2">98%</div>
+                    <div class="text-sm font-bold text-gray-800 uppercase tracking-wider mb-2">會考升學表現</div>
+                    <p class="text-gray-600 text-sm">錄取第一志願比例</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 入學資訊 (CTA) -->
+    <section id="admission" class="py-24 bg-[#022c22] text-white hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6 italic">成為我們的一員！</h2>
+                    <p class="text-emerald-200 mb-10 text-lg leading-relaxed">
+                        如果你對世界充滿好奇，如果你渴望在學術與創新的領域更進一步，廍子國中資優班將是你發光發熱的最佳舞台。我們提供完整的入學諮詢與試前說明會。
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="mt-1 w-6 h-6 flex-shrink-0 bg-yellow-400 text-emerald-900 rounded-full flex items-center justify-center font-bold text-sm">1</div>
+                            <div class="ml-4">
+                                <h5 class="font-bold">報名資格</h5>
+                                <p class="text-emerald-300 text-sm">台中市內應屆國小畢業生，且符合資優認定基準者。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mt-1 w-6 h-6 flex-shrink-0 bg-yellow-400 text-emerald-900 rounded-full flex items-center justify-center font-bold text-sm">2</div>
+                            <div class="ml-4">
+                                <h5 class="font-bold">鑑定流程</h5>
+                                <p class="text-emerald-300 text-sm">初選 (性向測驗) → 複選 (實作評量/面談)。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white text-gray-800 p-10 rounded-3xl shadow-2xl">
+                    <h3 class="text-2xl font-bold mb-6 text-center">預約諮詢說明會</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">家長姓名</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-emerald-500 outline-none" placeholder="請輸入姓名">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">聯繫電話</label>
+                            <input type="tel" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-emerald-500 outline-none" placeholder="09xx-xxx-xxx">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">諮詢項目</label>
+                            <select class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-emerald-600 outline-none">
+                                <option>入學鑑定說明</option>
+                                <option>課程內容諮詢</option>
+                                <option>校園環境參觀</option>
+                            </select>
+                        </div>
+                        <button type="button" class="w-full py-4 bg-emerald-700 text-white font-bold rounded-xl hover:bg-emerald-900 transition-colors shadow-lg shadow-emerald-900/20">
+                            送出預約
+                        </button>
+                    </form>
+                    <p class="mt-4 text-xs text-center text-gray-400">送出後將由負責老師於 3 個工作日內與您連繫</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer class="bg-gray-100 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center space-x-3">
+                    <img src="images/BUZI.png" alt="廍子國中校徽" class="h-12 w-auto">
+                    <div>
+                        <h4 class="font-bold text-gray-900">臺中市立廍子國民中學</h4>
+                        <p class="text-sm text-gray-500">Taichung City Buzi Junior High School</p>
+                    </div>
+                </div>
+                
+                <div class="text-center md:text-right text-gray-600 text-sm">
+                    <p>地址：406臺中市北屯區和祥路一段17號</p>
+                    <p>電話：0961061813 (輔導主任)</p>
+                    <p class="mt-2 text-gray-400">&copy; 2026 廍子國中資優班. 版權所有.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // === 行動版選單切換邏輯 ===
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        const navLinks = menu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // === 活動看板輪播圖邏輯 (暫時停用，因目前僅展示單張圖片) ===
+        /*
+        const carouselInner = document.getElementById('carousel-inner');
+        const slides = carouselInner.children;
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const indicators = document.querySelectorAll('.indicator');
+        
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+        let autoPlayInterval;
+
+        function updateCarousel() {
+            // 移動圖片
+            carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+            // 更新下方點點狀態
+            indicators.forEach((ind, i) => {
+                if (i === currentIndex) {
+                    ind.classList.remove('opacity-50');
+                    ind.classList.add('opacity-100');
+                } else {
+                    ind.classList.remove('opacity-100');
+                    ind.classList.add('opacity-50');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        // 綁定左右按鈕事件
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetAutoPlay();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetAutoPlay();
+        });
+
+        // 綁定下方點點事件
+        indicators.forEach((ind, i) => {
+            ind.addEventListener('click', () => {
+                currentIndex = i;
+                updateCarousel();
+                resetAutoPlay();
+            });
+        });
+
+        // 自動播放控制
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(nextSlide, 5000); // 每 5 秒切換一次
+        }
+
+        function resetAutoPlay() {
+            clearInterval(autoPlayInterval);
+            startAutoPlay();
+        }
+
+        // 啟動自動播放
+        startAutoPlay();
+        */
+    </script>
+</body>
+</html>
